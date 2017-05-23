@@ -1,7 +1,6 @@
 import Header from '../components/header';
 import BodyElement from '../components/bodyElement';
 import Footer from '../components/footer';
-import Speaker from '../components/speakers'
 
 import styled from 'styled-components';
 import Head from 'next/head';
@@ -18,7 +17,6 @@ export default  () => (
   <BodyElement>
     <Wrapper style={{backgroundColor:"#cecece"}} href='#speakers'>
       <Title> Our Speakers </Title>
-      <Speaker/>
     </Wrapper>
   </BodyElement>
   <BodyElement style={{backgroundColor:"#0033a0"}}>
