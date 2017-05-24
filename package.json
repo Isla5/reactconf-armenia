@@ -13,10 +13,9 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-icons": "^2.2.5",
+    "react-sticky": "^6.0.1",
     "styled-components": "2.0.0-17",
     "webpack-bundle-analyzer": "^2.8.2"
   },
-  "devDependencies": {
-    "img-loader": "^2.0.0"
-  }
+  "devDependencies": {}
 }

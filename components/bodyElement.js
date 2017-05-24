@@ -1,9 +1,15 @@
 import React from 'react';
- 
+import styled from 'styled-components';
+
+
+
 export default  ({children})  => (
-  <section>
-    <div>
+  <Wrapper>
       {children}
-    </div>
-  </section>
+  </Wrapper>
 )
+
+
+const Wrapper = styled.section `
+ text-align: center;
+ `
