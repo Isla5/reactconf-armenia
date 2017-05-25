@@ -14,7 +14,7 @@ export default () => (
     <div>
       <Wrapper>
         <TopNav>
-        <img style={{width: '120px', height: '110px' }} src="static/logo.png"/>
+        <img style={{width: '120px', height: '110px', marginLeft: '-1rem  ' }} src="static/logo.png"/>
         <Title>
           ReactNow 2017
         </Title>
@@ -41,7 +41,7 @@ const Title = styled.h1 `
   text-align: center;
   color: #0033a0;
   letter-spacing: 1.2px;
-  padding-right: 10rem;
+  padding-right: 12rem;
   font-size: 1.3rem;
   font-family: 'Lora', serif;
 
@@ -61,31 +61,10 @@ const Header  = styled.header `
   background-image: url(static/background.jpg);
   padding: 10rem;
 `
-
-const Input = styled.input `
-  margin-top: 5rem;
-  padding: 0.5rem;
-  opacity: 0.85;
-  color: rgb(83, 83, 83);
-  width: 20rem;
-  height: 2rem;
-  font-size: 1.5rem;
-`
-const Button = styled.button `
-  margin-top: 5rem;
-  width: 6rem;
-  height: 3.25rem;
-  background-color:  #0033a0;
-  border: 0;
-  color: #cfcfcf;
-  font-size: 1rem;
-`
-
 const TopNav = styled.section `
-
-
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -5rem;
+  margin-top: -7rem;
+
 `
