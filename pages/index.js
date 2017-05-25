@@ -18,12 +18,6 @@ export default () =>(
         <title>ReactNow Conference Armenia</title>
         <link rel="shortcut icon" href="static/logo.png" />
         </Head>
-        <style global jsx> {`
-         html, body {
-           padding: 0 !important;
-           margin: 0 !important;
-         }
-         `} </style>
         <Header/>
         <StickyContainer>
           <Sticky
@@ -32,65 +26,97 @@ export default () =>(
              ({ isSticky, wasSticky, style, distanceFromTop, distanceFromBottom, calculatedHeight }) => {
                  return isSticky ?
                  <HeaderWrapper style={style}>
-                   <NavBar
-                     fontColor='#fff'
-                     backgroundColor='rgba(30, 139, 195,0.5)'
-                     height='1rem'
-                    />
+                   <img style={{width: '100px', height: '90px', marginLeft: '-1rem  ' }} src="static/logo.png"/>
+                   <Text>
+                     ReactNow 2017
+                   </Text>
+                   <NavBar/>
                  </HeaderWrapper>
                  :<div></div>
                }
            }
          </Sticky>
           <BodyElement>
-            <Wrapper style={{backgroundColor: "#F2F1EF"}}>
+            <Wrapper style={{backgroundColor: "#f6f6f6"}}>
               <div>
               <Title> Meet Our Speakers </Title>
               <SpeakersBox>
               <Speaker
                 imgurl='https://avatars1.githubusercontent.com/u/22010816?v=3&s=400'>
                 Edgar Khanzadian
+                <ShortDescription>
+                Short Description
+                </ShortDescription>
               </Speaker>
               <Speaker
                 imgurl='https://avatars1.githubusercontent.com/u/3036816?v=3&s=400'>
                 Edgar Aroutiounian
+                <ShortDescription>
+                Short Description
+                </ShortDescription>
               </Speaker>
 
             </SpeakersBox>
             <SpeakersBox>
             <Speaker
-              imgurl='https://avatars1.githubusercontent.com/u/22010816?v=3&s=400'>
-              Edgar Khanzadian
+              imgurl='https://avatars1.githubusercontent.com/u/15631149?v=3&s=400'>
+              Narek Ghevandiani
+              <ShortDescription>
+              Short   Description
+              </ShortDescription>
             </Speaker>
             <Speaker
-              imgurl='https://avatars1.githubusercontent.com/u/3036816?v=3&s=400'>
-              Edgar Aroutiounian
+              imgurl='https://avatars1.githubusercontent.com/u/22914589?v=3&s=400'>
+              BirthDay Boy
+              <ShortDescription>
+              Isk arjukn u napastaky tox neren
+              </ShortDescription>
             </Speaker>
 
           </SpeakersBox>
           <SpeakersBox>
           <Speaker
-            imgurl='https://avatars1.githubusercontent.com/u/22010816?v=3&s=400'>
-            Edgar Khanzadian
+            imgurl='https://www.sideshowtoy.com/wp-content/uploads/2013/06/901935-product-feature.jpg'>
+            RoboCop
+            <ShortDescription>
+             Serve the public trust
+            </ShortDescription>
           </Speaker>
           <Speaker
-            imgurl='https://avatars1.githubusercontent.com/u/3036816?v=3&s=400'>
-            Edgar Aroutiounian
+            imgurl='https://www.sideshowtoy.com/photo.php?sku=902622'>
+            Iron Man
+            <ShortDescription>
+            Give me a scotch. I'm starving.
+            </ShortDescription>
           </Speaker>
 
+        </SpeakersBox>
+        <SpeakersBox>
+          <Speaker
+            imgurl='https://image.flaticon.com/icons/svg/37/37571.svg '>
+            Apply Now, Be The Next Hero
+          </Speaker>
         </SpeakersBox>
             </div>
             </Wrapper>
           </BodyElement>
           <BodyElement>
-            <Wrapper style={{backgroundColor: '#89C4F4', height: '300px'}}>
-              <Title style={{color: '#F2F1EF'}}> Our Sponsors</Title>
+            <Wrapper style={{backgroundColor: '#FFF', height: '300px'}}>
+              <Title> Our Sponsors</Title>
             </Wrapper>
           </BodyElement>
           <Footer/>
         </StickyContainer>
       </div>
   )
+
+  injectGlobal `
+    html, body {
+    padding: 0 !important;
+    margin: 0 !important;
+    }
+  `
+
 const Wrapper = styled.section  `
   display: flex;
   justify-content: center;
@@ -102,6 +128,9 @@ const Title = styled.h1 `
   text-align: center;
 `
 const HeaderWrapper = styled.section `
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   right: 0;
@@ -109,6 +138,7 @@ const HeaderWrapper = styled.section `
   margin: 0;
   text-align: center;
   width: '100%';
+  background-color: rgba(255,255,255,0.8);
 
 `
 const SpeakersBox = styled.section `
@@ -117,4 +147,22 @@ const SpeakersBox = styled.section `
   justify-content: space-around !important;
   margin-bottom: 3rem;
 
+`
+const Text = styled.h1 `
+  text-align: center;
+  color: #0033a0;
+  letter-spacing: 1.2px;
+  padding-right: 12rem;
+  font-size: 1.3rem;
+  font-family: 'Lora', serif;
+
+`
+const ShortDescription = styled.p`
+  color: rgb(139, 139, 135);
+  height: auto;
+  font-family: sans-serif;
+  width: 100%;
+  font-weight: lighter;
+  font-size: 18px;
+  margin-top: 2px;
 `

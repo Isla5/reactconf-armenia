@@ -47,7 +47,7 @@ const Title = styled.h1 `
 
   `
 const Text = styled.p `
-  color:#cecece;
+  color:#fff;
   text-align: center;
   font-size: 1.5rem;
   padding-top: 13rem;
@@ -58,7 +58,7 @@ const Header  = styled.header `
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(static/background.jpg);
+  background-image: url(static/bg.jpg);
   padding: 10rem;
 `
 const TopNav = styled.section `
