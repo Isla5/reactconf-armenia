@@ -53,7 +53,7 @@ const CardHeader = styled.header `
   }
 `
 
-const CardBody = styled.p `
+const CardBody = styled.h1 `
   height: auto;
   font-family: sans-serif;
   color: #0033a0;
@@ -64,8 +64,9 @@ const CardBody = styled.p `
   margin-top: 1rem;
 `
 
-const Icon = styled.a `
+const Icon = styled.h1 `
   text-decoration: none;
   margin-top: 0.3rem;
   height: 0;
+  margin-top: 0.8rem;
 `

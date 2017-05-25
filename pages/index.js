@@ -6,7 +6,7 @@ import BodyElement from '../components/bodyElement';
 import Footer from '../components/footer';
 import styled, {injectGlobal} from 'styled-components';
 import NavBar from '../components/navBar'
-import Speaker from '../components/speakers'
+import Speaker from '../components/speakersCard'
 
 import Head from 'next/head';
 
@@ -26,10 +26,6 @@ export default () =>(
              ({ isSticky, wasSticky, style, distanceFromTop, distanceFromBottom, calculatedHeight }) => {
                  return isSticky ?
                  <HeaderWrapper style={style}>
-                   <img style={{width: '100px', height: '90px', marginLeft: '-1rem  ' }} src="static/logo.png"/>
-                   <Text>
-                     ReactNow 2017
-                   </Text>
                    <NavBar/>
                  </HeaderWrapper>
                  :<div></div>
@@ -126,6 +122,7 @@ const Title = styled.h1 `
   font-size: 2.5rem;
   color: #0033a0;
   text-align: center;
+  font-weight: 400;
 `
 const HeaderWrapper = styled.section `
   display: flex;
