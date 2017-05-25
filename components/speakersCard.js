@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import {FaFacebook, FaTwitter, FaGithub} from 'react-icons/lib/fa'
-
 
 type CardProps = {
   children?: any,
@@ -33,6 +32,7 @@ const Card = styled.section `
   transition: .2s linear;
   margin-right: 4rem;
   margin-left: 4rem;
+  margin-top: 2rem;
   &:hover {
     box-shadow: 0px 0px 50px rgba(0,0,0,0.3);
     cursor: pointer;
@@ -41,8 +41,8 @@ const Card = styled.section `
 const CardHeader = styled.header `
   overflow: hidden;
   background-color: grey;
-  transition: height .2s;
   margin-right: 1rem;
+  margin-left: -0.5rem;
   width: 18rem;
   img {
     width: 180px;

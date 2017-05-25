@@ -44,7 +44,7 @@ const Header  = styled.header `
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(static/bg.jpg);
+  background-image: url(static/img/bg.jpg);
   padding: 10rem !important;
 `
 const TopNav = styled.section `

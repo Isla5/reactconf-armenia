@@ -1,14 +1,15 @@
 import React, {Component} from 'react'
 import {Sticky, StickyContainer} from 'react-sticky';
+import Head from 'next/head';
+import styled, {injectGlobal} from 'styled-components';
 
 import Header from '../components/header';
 import BodyElement from '../components/bodyElement';
 import Footer from '../components/footer';
-import styled, {injectGlobal} from 'styled-components';
 import NavBar from '../components/navBar'
 import Speaker from '../components/speakersCard'
 
-import Head from 'next/head';
+
 
 export default () =>(
 
@@ -88,6 +89,7 @@ export default () =>(
 
         </SpeakersBox>
         <SpeakersBox>
+
           <Speaker
             imgurl='https://image.flaticon.com/icons/svg/37/37571.svg '>
             Apply Now, Be The Next Hero
