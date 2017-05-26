@@ -1,5 +1,5 @@
 import React from 'react';
-import Page from '../layouts/default';
+import Page from './';
 import Speaker from '../components/speakersCard';
 import styled, {injectGlobal} from 'styled-components'
 
