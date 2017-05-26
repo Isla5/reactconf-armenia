@@ -27,7 +27,7 @@ export default({fontColor, backgroundColor, height} : ElementProps) => (
 			<Link href='speakers'>
 				<Item>Speakers</Item>
 			</Link>
-			<Link href='#sponsors'>
+			<Link href='/sponsors'>
 				<Item>Sponsors</Item>
 			</Link>
 			<Link href='#schedule'>
