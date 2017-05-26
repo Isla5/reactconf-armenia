@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Sticky, StickyContainer} from 'react-sticky';
 import Head from 'next/head';
 import styled, {injectGlobal} from 'styled-components';
-
+import {normalize} from 'polished';
 import Header from '../components/header';
 import BodyElement from '../components/bodyElement';
 import Footer from '../components/footer';
@@ -114,10 +114,7 @@ export default() => (
 )
 
 injectGlobal `
-    html, body {
-    padding: 0 !important;
-    margin: 0 !important;
-    }
+    ${normalize()}
   `
 
 const Wrapper = styled.section `
