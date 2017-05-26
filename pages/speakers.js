@@ -1,7 +1,9 @@
 import React from 'react';
-import Page from './';
+import Layout from '../layouts/default';
 import Speaker from '../components/speakersCard';
 import styled, {injectGlobal} from 'styled-components'
+
+import Sponsors	from '../components/speakersCard';
 
 import Head from 'next/head'
 export default() => (
@@ -10,7 +12,7 @@ export default() => (
 			<title>ReactNow Conference Armenia | Speakers</title>
 			<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet"/>
 		</Head>
-		<Page></Page>
+		<Layout></Layout>
 	</div>
 )
 

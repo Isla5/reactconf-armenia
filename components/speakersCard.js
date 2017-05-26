@@ -67,7 +67,7 @@ const CardBody = styled.h1 `
   margin-top: 1rem;
 `;
 
-const Icon = styled.h1 `
+const Icon = styled.a `
   text-decoration: none;
   margin-top: 0.3rem;
   height: 0;

@@ -3,8 +3,13 @@ import NavBar from '../components/navBar'
 import Footer from '../components/footer'
 import styled, {injectGlobal} from 'styled-components'
 
-export default({children}) => (
-	<div>
+
+type LayoutProps = {
+	backgroundColor ?: string,
+	children ?: any,
+}
+export default({children, backgroundColor}: LayoutProps ) => (
+	<div backgroundColor={backgroundColor || 'f6f6f6'}>
 		<Wrapper>
 			<NavBar/>
 		</Wrapper>
@@ -17,7 +22,6 @@ injectGlobal `
   html, body {
     padding: 0 !important;
     margin: 0 !important;
-    background-color: #f6f6f6;
   }
 `;
 const Wrapper = styled.section `

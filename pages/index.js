@@ -8,7 +8,7 @@ import BodyElement from '../components/bodyElement';
 import Footer from '../components/footer';
 import NavBar from '../components/navBar'
 import Speaker from '../components/speakersCard'
-
+import Sponsors	from '../components/sponsorsCard'
 export default() => (
 
 	<div>
@@ -101,11 +101,14 @@ export default() => (
 			<BodyElement>
 				<Wrapper style={{
 					backgroundColor: '#FFF',
-					height: '300px'
 				}}>
+				<div>
 					<Title>
 						Our Sponsors
 					</Title>
+					<Sponsors imgurl='https://it-center.am/images/partners/apollobytes.png' />
+					<Sponsors imgurl='http://www.nocode.tech/uploads/1/1/9/9/11996464/render-forest.png?233' />
+				</div>
 				</Wrapper>
 			</BodyElement>
 			<Footer/>
