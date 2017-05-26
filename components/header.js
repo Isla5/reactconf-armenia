@@ -25,13 +25,14 @@ const Wrapper = styled.section `
   display: flex;
   justify-content: center;
   align-items: center;
+	margin-left: 1rem;
 `;
 
 const Text = styled.p `
   color:#fff;
   text-align: center;
   font-size: 1.5rem;
-  padding-top: 13rem;
+  padding-top: 12rem;
   font-family: 'Lora', serif;
 `;
 const Header = styled.header `

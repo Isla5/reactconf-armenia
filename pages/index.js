@@ -106,8 +106,10 @@ export default() => (
 					<Title>
 						Our Sponsors
 					</Title>
+					<Row>
 					<Sponsors imgurl='https://it-center.am/images/partners/apollobytes.png' />
 					<Sponsors imgurl='http://www.nocode.tech/uploads/1/1/9/9/11996464/render-forest.png?233' />
+				</Row>
 				</div>
 				</Wrapper>
 			</BodyElement>
@@ -169,4 +171,9 @@ const ShortDescription = styled.p `
   font-weight: lighter;
   font-size: 18px;
   margin-top: 2px;
+`
+const Row = styled.section`
+	display: flex;
+	align-items:	center;
+	margin-bottom: 2rem;
 `

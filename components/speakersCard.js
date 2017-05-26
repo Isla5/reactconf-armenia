@@ -6,10 +6,13 @@ type CardProps = {
 	children?: any,
 	imgurl?: string,
 	github?: string,
-	twitter?: string
+	twitter?: string,
+	cardWidth?: number,
+	cardHeight?: number,
 };
-export default({children, imgurl, twitter, github} : CardProps) => (
-	<Card>
+export default({children, imgurl, twitter, github, cardWidth, cardHeight} : CardProps) => (
+	<Card
+		style={{width: cardWidth || '22rem', height: cardHeight || '8rem'}}>
 		<CardHeader>
 			<img src={imgurl}/>
 		</CardHeader>
@@ -29,8 +32,6 @@ export default({children, imgurl, twitter, github} : CardProps) => (
 
 const Card = styled.section `
   display: flex;
-  height: 8rem;
-  width: 22rem;
   background-color: #fff;
   box-shadow: 0px 0px 20px rgba(0,0,0, 0.1);
   transition: .2s linear;
@@ -49,8 +50,8 @@ const CardHeader = styled.header `
   margin-left: -0.5rem;
   width: 18rem;
   img {
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    height: 100%;
     display: flex !important;
     padding: 0;
   }

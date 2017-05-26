@@ -2,13 +2,18 @@ import React from 'react';
 import styled from 'styled-components';;
 
 type SponsorProps = {
-  children?: any,
   imgurl?: string,
+  sponsorurl?: string,
 }
-export default ({imgurl, children} : SponsorProps) => (
+export default ({imgurl, sponsorurl} : SponsorProps) => (
 
     <Wrapper>
-        <Sponsor><Image src={imgurl}/></Sponsor>
+        <Sponsor>
+          <a href={sponsorurl}>
+          <Image src={imgurl}/>
+          </a>
+
+          </Sponsor>
 </Wrapper>
 
 );
@@ -17,23 +22,25 @@ export default ({imgurl, children} : SponsorProps) => (
 const Wrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
-
+  align-items: center;
 
 `;
 const Sponsor = styled.div`
 	align-items: center;
-	padding: 10px;
-	margin: 30px;
-	transition: border 0.2s;
-	transition-timing-function: ease-out;
+  margin-left: 8rem;
+  margin-right: 8rem;
 
 `;
 const Image = styled.img`
+  max-height: 200px;
 	max-width: 200px;
-	max-height: 200px;
-	width: auto;
-	height: auto;
+	width: auto%;
+	height: auto%;
 	display:block;
   margin:auto;
-  filter: grayscale(40%);
+  filter: grayscale(100%);
+  transition: filter .2s ease-in;
+  &:hover {
+    filter: grayscale(0)
+  }
 `;
