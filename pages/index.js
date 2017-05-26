@@ -9,113 +9,118 @@ import Footer from '../components/footer';
 import NavBar from '../components/navBar'
 import Speaker from '../components/speakersCard'
 
+export default() => (
 
+	<div>
+		<Head>
+			<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet"/>
+			<title>ReactNow Conference Armenia</title>
+			<link rel="shortcut icon" href="static/logo.png"/>
+		</Head>
+		<Header/>
+		<StickyContainer>
+			<Sticky disableCompensation={true}>
+				{({
+					isSticky,
+					wasSticky,
+					style,
+					distanceFromTop,
+					distanceFromBottom,
+					calculatedHeight
+				}) => {
+					return isSticky
+						? <HeaderWrapper style={style}>
+								<NavBar/>
+							</HeaderWrapper>
+						: <div></div>
+				}
+}
+			</Sticky>
+			<BodyElement>
+				<Wrapper style={{
+					backgroundColor: "#f6f6f6"
+				}}>
+					<div>
+						<Title>
+							Meet Our Speakers
+						</Title>
+						<SpeakersBox>
+							<Speaker imgurl='https://avatars1.githubusercontent.com/u/22010816?v=3&s=400'>
+								Edgar Khanzadian
+								<ShortDescription>
+									Short Description
+								</ShortDescription>
+							</Speaker>
+							<Speaker imgurl='https://avatars1.githubusercontent.com/u/3036816?v=3&s=400'>
+								Edgar Aroutiounian
+								<ShortDescription>
+									Short Description
+								</ShortDescription>
+							</Speaker>
 
-export default () =>(
+						</SpeakersBox>
+						<SpeakersBox>
+							<Speaker imgurl='https://avatars1.githubusercontent.com/u/15631149?v=3&s=400'>
+								Narek Ghevandiani
+								<ShortDescription>
+									Short Description
+								</ShortDescription>
+							</Speaker>
+							<Speaker imgurl='https://avatars1.githubusercontent.com/u/22914589?v=3&s=400'>
+								BirthDay Boy
+								<ShortDescription>
+									Isk arjukn u napastaky tox neren
+								</ShortDescription>
+							</Speaker>
 
-    <div>
-      <Head>
-        <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet"/>
-        <title>ReactNow Conference Armenia</title>
-        <link rel="shortcut icon" href="static/logo.png" />
-        </Head>
-        <Header/>
-        <StickyContainer>
-          <Sticky
-            disableCompensation={true}>
-           {
-             ({ isSticky, wasSticky, style, distanceFromTop, distanceFromBottom, calculatedHeight }) => {
-                 return isSticky ?
-                 <HeaderWrapper style={style}>
-                   <NavBar/>
-                 </HeaderWrapper>
-                 :<div></div>
-               }
-           }
-         </Sticky>
-          <BodyElement>
-            <Wrapper style={{backgroundColor: "#f6f6f6"}}>
-              <div>
-              <Title> Meet Our Speakers </Title>
-              <SpeakersBox>
-              <Speaker
-                imgurl='https://avatars1.githubusercontent.com/u/22010816?v=3&s=400'>
-                Edgar Khanzadian
-                <ShortDescription>
-                Short Description
-                </ShortDescription>
-              </Speaker>
-              <Speaker
-                imgurl='https://avatars1.githubusercontent.com/u/3036816?v=3&s=400'>
-                Edgar Aroutiounian
-                <ShortDescription>
-                Short Description
-                </ShortDescription>
-              </Speaker>
+						</SpeakersBox>
+						<SpeakersBox>
+							<Speaker imgurl='https://www.sideshowtoy.com/wp-content/uploads/2013/06/901935-product-feature.jpg'>
+								RoboCop
+								<ShortDescription>
+									Serve the public trust
+								</ShortDescription>
+							</Speaker>
+							<Speaker imgurl='https://www.sideshowtoy.com/photo.php?sku=902622'>
+								Iron Man
+								<ShortDescription>
+									Give me a scotch. I'm starving.
+								</ShortDescription>
+							</Speaker>
 
-            </SpeakersBox>
-            <SpeakersBox>
-            <Speaker
-              imgurl='https://avatars1.githubusercontent.com/u/15631149?v=3&s=400'>
-              Narek Ghevandiani
-              <ShortDescription>
-              Short   Description
-              </ShortDescription>
-            </Speaker>
-            <Speaker
-              imgurl='https://avatars1.githubusercontent.com/u/22914589?v=3&s=400'>
-              BirthDay Boy
-              <ShortDescription>
-              Isk arjukn u napastaky tox neren
-              </ShortDescription>
-            </Speaker>
+						</SpeakersBox>
+						<SpeakersBox>
 
-          </SpeakersBox>
-          <SpeakersBox>
-          <Speaker
-            imgurl='https://www.sideshowtoy.com/wp-content/uploads/2013/06/901935-product-feature.jpg'>
-            RoboCop
-            <ShortDescription>
-             Serve the public trust
-            </ShortDescription>
-          </Speaker>
-          <Speaker
-            imgurl='https://www.sideshowtoy.com/photo.php?sku=902622'>
-            Iron Man
-            <ShortDescription>
-            Give me a scotch. I'm starving.
-            </ShortDescription>
-          </Speaker>
+							<Speaker imgurl='https://image.flaticon.com/icons/svg/37/37571.svg '>
+								Apply Now, Be The Next Hero
+							</Speaker>
+						</SpeakersBox>
+					</div>
+				</Wrapper>
+			</BodyElement>
+			<BodyElement>
+				<Wrapper style={{
+					backgroundColor: '#FFF',
+					height: '300px'
+				}}>
+					<Title>
+						Our Sponsors
+					</Title>
+				</Wrapper>
+			</BodyElement>
+			<Footer/>
+		</StickyContainer>
+	</div>
+)
 
-        </SpeakersBox>
-        <SpeakersBox>
-
-          <Speaker
-            imgurl='https://image.flaticon.com/icons/svg/37/37571.svg '>
-            Apply Now, Be The Next Hero
-          </Speaker>
-        </SpeakersBox>
-            </div>
-            </Wrapper>
-          </BodyElement>
-          <BodyElement>
-            <Wrapper style={{backgroundColor: '#FFF', height: '300px'}}>
-              <Title> Our Sponsors</Title>
-            </Wrapper>
-          </BodyElement>
-          <Footer/>
-        </StickyContainer>
-      </div>
-  )
-
-  injectGlobal `
+injectGlobal `
     html, body {
     padding: 0 !important;
     margin: 0 !important;
     }
   `
 
-const Wrapper = styled.section  `
+const Wrapper = styled.section `
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -156,7 +161,7 @@ const Text = styled.h1 `
   font-family: 'Lora', serif;
 
 `
-const ShortDescription = styled.p`
+const ShortDescription = styled.p `
   color: rgb(139, 139, 135);
   height: auto;
   font-family: sans-serif;

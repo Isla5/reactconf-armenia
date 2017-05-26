@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint components layouts pages"
   },
   "license": "MIT",
   "dependencies": {
@@ -20,7 +21,10 @@
     "webpack-bundle-analyzer": "^2.8.2"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "babel-plugin-css-modules-transform": "^1.2.7",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.1",
     "node-sass": "^4.5.3"
   }
 }
