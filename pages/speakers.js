@@ -2,23 +2,8 @@ import React from 'react';
 import Layout from '../layouts/default';
 import Speaker from '../components/speakersCard';
 import styled, {injectGlobal, css} from 'styled-components'
-
-const sizes = {
-	desktop: 992,
-	tablet: 768,
-	phone: 376
-}
-
-// Iterate through the sizes and create a media template
-const media = Object.keys(sizes).reduce((acc, label) => {
-	acc[label] = (...args) => css`
-		@media (max-width: ${sizes[label] / 16}em) {
-			${css(...args)}
-		}
-	`
-
-	return acc
-}, {})
+import Media from '../components/mediaQuery'
+import {normalize} from 'polished';
 
 
 import Head from 'next/head'
@@ -111,15 +96,13 @@ export default() => (
 					</LongDescription>
 				</Speaker>
 
-			</div>
+		</div>
 			</Wrapper>
 		</Layout>
 	</div>
 )
 
-injectGlobal `
-  font-family: 'Lora', serif
-`;
+
 
 const Wrapper = styled.section `
   display: flex !important;
@@ -142,7 +125,7 @@ const LongDescription = styled.p `
   margin-top: 2px;
 	text-align: justify;
 	text-justify: inter-word;
-	${media.desktop`
+	${Media.desktop`
 		font-size: 20px;
 		color: rgb(19, 22, 23);
 	`}
@@ -151,12 +134,11 @@ const LongDescription = styled.p `
 
 
 const Title = styled.h1 `
-  font-size: 3rem;
-  color: #0033a0;
-  font-weight: 400;
-	padding-top: 2rem;
-	display: flex;
-	justify-content: center !important;
-	align-items: center !important;
-	align-content: center;
+font-size: 3rem;
+color: #0033a0;
+font-weight: 400;
+padding-top: 2rem;
+display: flex;
+align-items: center;
+justify-content: center;
 `;

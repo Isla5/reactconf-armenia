@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';;
-
+import Media from './mediaQuery'
 type SponsorProps = {
   imgurl?: string,
   sponsorurl?: string,
@@ -23,6 +23,8 @@ const Wrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
   align-items: center;
+  z-index: 0;
+
 
 `;
 const Sponsor = styled.div`

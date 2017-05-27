@@ -1,26 +1,10 @@
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 import Link from 'next/link';
 import Loader from './loader';
+import Media  from './mediaQuery'
 
 
 
-
-const sizes = {
-	desktop: 992,
-	tablet: 768,
-	phone: 376
-}
-
-// Iterate through the sizes and create a media template
-const media = Object.keys(sizes).reduce((acc, label) => {
-	acc[label] = (...args) => css`
-		@media (max-width: ${sizes[label] / 16}em) {
-			${css(...args)}
-		}
-	`
-
-	return acc
-}, {})
 
 type ElementProps = {
 	fontColor?: string,
@@ -52,9 +36,10 @@ export default({fontColor, backgroundColor, height} : ElementProps) => (
 			<Link href='#schedule'>
 				<Item>Schedule</Item>
 			</Link>
-			<Link href='#donate'>
-				<Item>Donate</Item>
+			<Link href='venue'>
+				<Item>Venue</Item>
 			</Link>
+
 		</Menu>
 	</Wrapper>
 );
@@ -63,13 +48,15 @@ const Wrapper = styled.section `
   display: flex;
   align-items: center;
   justify-content: center;
-	${media.desktop `
+	z-index: 100;
+	${Media.desktop `
 		height: 12rem;
 	`}
 `;
 const Menu = styled.ul `
   color: #0033a0 ;
-	${media.desktop `
+	z-index: 100;
+	${Media.desktop `
 
 	`}
 
@@ -86,7 +73,7 @@ const Item = styled.a `
    &:hover  {
      color: #cfcfcf;
    };
-	 ${media.desktop`
+	 ${Media.desktop`
 
  		font-size: 2.6rem;
 
@@ -103,7 +90,7 @@ const Title = styled.h1 `
   font-size: 1.3rem;
   font-family: 'Lora', serif;
   text-decoration: none;
-	${media.desktop `
+	${Media.desktop `
 		height: 0;
 		widht: 0;
 		display: none;

@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
-
-export default({children}) => (
-	<Wrapper>
+type BodyProps = {
+	color?: string,
+	children?: any
+}
+export default({children, color}: BodyProps) => (
+	<Wrapper style={{backgroundColor: color}}>
 		{children}
 	</Wrapper>
 );

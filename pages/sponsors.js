@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head';
 import styled, {injectGlobal} from 'styled-components';
-import {normalize, desaturate} from 'polished';
+import {normalize} from 'polished';
 import Layout from '../layouts/default';
 import Sponsors from '../components/sponsorsCard';
 import BodyElement	from '../components/bodyElement'
@@ -36,6 +36,8 @@ export default() => (
 	</Layout>
 	</div>
 );
+
+
 const OurSponsorsWrapper = styled.section`
 	padding-bottom: 2rem;
 	background: #f6f6f6;
@@ -50,6 +52,9 @@ const Row = styled.section `
 const Title = styled.h1 `
   font-size: 3rem;
   color: #0033a0;
-  text-align: center;
   font-weight: 400;
+	padding-top: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;

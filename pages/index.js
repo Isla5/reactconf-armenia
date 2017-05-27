@@ -9,24 +9,9 @@ import Footer from '../components/footer';
 import NavBar from '../components/navBar'
 import Speaker from '../components/speakersCard'
 import Sponsors	from '../components/sponsorsCard'
-import Layout from '../layouts/default';
+import Media  from '../components/mediaQuery'
+import Venue from '../components/venue'
 
-const sizes = {
-	desktop: 992,
-	tablet: 768,
-	phone: 376
-}
-
-// Iterate through the sizes and create a media template
-const media = Object.keys(sizes).reduce((acc, label) => {
-	acc[label] = (...args) => css`
-		@media (max-width: ${sizes[label] / 16}em) {
-			${css(...args)}
-		}
-	`
-
-	return acc
-}, {})
 export default() => (
 
 	<div>
@@ -48,16 +33,15 @@ export default() => (
 				}) => {
 					return isSticky
 						? <HeaderWrapper style={style}>
-								<NavBar/>
+								<NavBar
+								backgroundColor='#fff'/>
 							</HeaderWrapper>
 						: <div></div>
 				}
 }
 			</Sticky>
-			<BodyElement>
-				<Wrapper style={{
-					backgroundColor: "#f6f6f6"
-				}}>
+			<BodyElement color='#f6f6f6'>
+				<Wrapper>
 					<div>
 						<Title>
 							 Our Speakers
@@ -120,17 +104,33 @@ export default() => (
 				<Wrapper style={{
 					backgroundColor: '#FFF',
 				}}>
-				<div>
+				<div style={{zIndex: '0'}}>
 					<Title>
 						Our Sponsors
 					</Title>
 					<Row>
-					<Sponsors imgurl='https://it-center.am/images/partners/apollobytes.png' />
-					<Sponsors imgurl='http://www.nocode.tech/uploads/1/1/9/9/11996464/render-forest.png?233' />
+					<Sponsors imgurl='https://it-center.am/images/partners/apollobytes.png'
+					sponsorurl='https://www.appolobytes.com/'/>
+					<Sponsors
+							 sponsorurl='https://facebook.github.io/react'
+							 imgurl='http://pngimg.com/uploads/facebook_logos/facebook_logos_PNG19764.png' />
 				</Row>
+				<Row>
+					<Sponsors
+						sponsorurl='https://www.renderforest.com/'
+						 imgurl='http://www.nocode.tech/uploads/1/1/9/9/11996464/render-forest.png?233' />
+						 <Sponsors
+							 sponsorurl='https://netflix.com'
+							 imgurl='https://s-media-cache-ak0.pinimg.com/originals/99/73/0d/99730d10b40801dc93178989782d52b9.png' />
+					 </Row>
 				</div>
 				</Wrapper>
 			</BodyElement>
+		<BodyElement
+			color='#f6f6f6'>
+			<Venue/>
+		</BodyElement>
+
 			<Footer/>
 		</StickyContainer>
 	</div>
@@ -153,7 +153,7 @@ const Title = styled.h1 `
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	${media.desktop`
+	${Media.desktop`
    font-size: 4rem;
 	`}
 `
@@ -177,7 +177,7 @@ const SpeakersBox = styled.section `
   justify-content: center !important;
   margin-bottom: 1rem;
 	margin-top: 2rem;
-	${media.desktop`
+	${Media.desktop`
 		display: block;
 		width: 100%;
 
@@ -193,7 +193,7 @@ const ShortDescription = styled.p `
   font-weight: lighter;
   font-size: 18px;
   margin-top: 2px;
-	${media.desktop`
+	${Media.desktop`
 		font-size: 50px;
 	`}
 `

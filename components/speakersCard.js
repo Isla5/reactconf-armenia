@@ -1,27 +1,10 @@
 import React, {Component} from 'react';
 import styled, {css} from 'styled-components';
 import {FaFacebook, FaTwitter, FaGithub} from 'react-icons/lib/fa'
+import Media  from './mediaQuery'
 
 
 
-
-
-const sizes = {
-	desktop: 992,
-	tablet: 768,
-	phone: 376
-}
-
-// Iterate through the sizes and create a media template
-const media = Object.keys(sizes).reduce((acc, label) => {
-	acc[label] = (...args) => css`
-		@media (max-width: ${sizes[label] / 16}em) {
-			${css(...args)}
-		}
-	`
-
-	return acc
-}, {})
 
 type CardProps = {
 	children?: any,
@@ -68,7 +51,7 @@ const Card = styled.section `
     box-shadow: 0px 0px 50px rgba(0,0,0,0.3);
     cursor: pointer;
   }
-	${media.desktop`
+	${Media.desktop`
 		height: 20rem;
 		width: 100%;
 	`}
@@ -96,7 +79,7 @@ const CardBody = styled.h1 `
   font-size: 20px;
   font-weight: normal;
   margin-top: 1rem;
-	${media.desktop`
+	${Media.desktop`
 		font-size: 47px;
 	`}
 `;
