@@ -12,23 +12,25 @@ export default() => (
 			<title>ReactNow Conference Armenia | Sponsors</title>
 			<link rel="shortcut icon" href="static/logo.png"/>
 		</Head>
-		<Layout
-			padding='-0.91rem'>
+		<Layout>
 			<OurSponsorsWrapper>
 				<Title>Meet Our Sponsors</Title>
-				<Raw>
+				<Row>
 					<Sponsors
 						sponsorurl='https://www.apollobytes.com/'
 						imgurl='https://it-center.am/images/partners/apollobytes.png' />
 					<Sponsors
 							 sponsorurl='https://facebook.github.io/react'
 							 imgurl='http://pngimg.com/uploads/facebook_logos/facebook_logos_PNG19764.png' />
-						 </Raw>
-				<Raw>
+						 </Row>
+				<Row>
 					<Sponsors
 						sponsorurl='https://www.renderforest.com/'
 						 imgurl='http://www.nocode.tech/uploads/1/1/9/9/11996464/render-forest.png?233' />
-					 </Raw>
+						 <Sponsors
+							 sponsorurl='https://netflix.com'
+							 imgurl='https://s-media-cache-ak0.pinimg.com/originals/99/73/0d/99730d10b40801dc93178989782d52b9.png' />
+					 </Row>
 				 </OurSponsorsWrapper>
 
 	</Layout>
@@ -39,19 +41,15 @@ const OurSponsorsWrapper = styled.section`
 	background: #f6f6f6;
 	padding-top: 10rem;
 `
-const Raw = styled.section `
+const Row = styled.section `
   display: flex;
   justify-content: center;
   align-items: center;
-	background-color: '#FFF'
+	background-color: '#FFF';
 `;
 const Title = styled.h1 `
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: #0033a0;
   text-align: center;
   font-weight: 400;
-`;
-
-injectGlobal `
-    ${normalize()}
 `;

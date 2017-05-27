@@ -1,7 +1,26 @@
 import React from 'react'
 import NavBar from '../components/navBar'
 import Footer from '../components/footer'
-import styled, {injectGlobal} from 'styled-components'
+import styled, {injectGlobal, css} from 'styled-components'
+
+
+
+const sizes = {
+	desktop: 992,
+	tablet: 768,
+	phone: 376
+}
+
+// Iterate through the sizes and create a media template
+const media = Object.keys(sizes).reduce((acc, label) => {
+	acc[label] = (...args) => css`
+		@media (max-width: ${sizes[label] / 16}em) {
+			${css(...args)}
+		}
+	`
+
+	return acc
+}, {})
 
 type LayoutProps = {
 	children ?: any,
@@ -24,18 +43,15 @@ injectGlobal `
   html, body {
     padding: 0 !important;
     margin: 0 !important;
-		width: 100%
   }
 `;
 const Wrapper = styled.section `
-	z-index: 100;
+	z-index: 1;
 	position: fixed;
 	top : 0;
 	right: 0;
 	left: 0;
   margin-top: 0 !important;
-  background-color: rgba(255,255,255,0.8)
   width: 100%;
 	border-bottom: solid 2px #efefef;
-
 `;

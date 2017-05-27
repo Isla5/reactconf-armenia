@@ -1,6 +1,26 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import Link from 'next/link';
 import Loader from './loader';
+
+
+
+
+const sizes = {
+	desktop: 992,
+	tablet: 768,
+	phone: 376
+}
+
+// Iterate through the sizes and create a media template
+const media = Object.keys(sizes).reduce((acc, label) => {
+	acc[label] = (...args) => css`
+		@media (max-width: ${sizes[label] / 16}em) {
+			${css(...args)}
+		}
+	`
+
+	return acc
+}, {})
 
 type ElementProps = {
 	fontColor?: string,
@@ -22,7 +42,6 @@ export default({fontColor, backgroundColor, height} : ElementProps) => (
 		<Title>ReactNow 2017</Title>
 		<Menu style={{
 			color: fontColor || ' #0033a0',
-			padding: height || 'auto'
 		}}>
 			<Link href='speakers'>
 				<Item>Speakers</Item>
@@ -44,9 +63,16 @@ const Wrapper = styled.section `
   display: flex;
   align-items: center;
   justify-content: center;
+	${media.desktop `
+		height: 12rem;
+	`}
 `;
 const Menu = styled.ul `
   color: #0033a0 ;
+	${media.desktop `
+
+	`}
+
 `;
 const Item = styled.a `
   font-size: 1.3rem;
@@ -59,7 +85,14 @@ const Item = styled.a `
    transition: 0.2s ease-in-out;
    &:hover  {
      color: #cfcfcf;
-   }
+   };
+	 ${media.desktop`
+
+ 		font-size: 2.6rem;
+
+
+ 		`}
+
 `;
 
 const Title = styled.h1 `
@@ -70,4 +103,9 @@ const Title = styled.h1 `
   font-size: 1.3rem;
   font-family: 'Lora', serif;
   text-decoration: none;
+	${media.desktop `
+		height: 0;
+		widht: 0;
+		display: none;
+	`}
 `;

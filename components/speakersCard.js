@@ -1,6 +1,27 @@
 import React, {Component} from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import {FaFacebook, FaTwitter, FaGithub} from 'react-icons/lib/fa'
+
+
+
+
+
+const sizes = {
+	desktop: 992,
+	tablet: 768,
+	phone: 376
+}
+
+// Iterate through the sizes and create a media template
+const media = Object.keys(sizes).reduce((acc, label) => {
+	acc[label] = (...args) => css`
+		@media (max-width: ${sizes[label] / 16}em) {
+			${css(...args)}
+		}
+	`
+
+	return acc
+}, {})
 
 type CardProps = {
 	children?: any,
@@ -9,10 +30,12 @@ type CardProps = {
 	twitter?: string,
 	cardWidth?: number,
 	cardHeight?: number,
+	margin?: margin
 };
-export default({children, imgurl, twitter, github, cardWidth, cardHeight} : CardProps) => (
+export default({children, imgurl, twitter, github, cardWidth, cardHeight, margin} : CardProps) => (
+<Wrapper>
 	<Card
-		style={{width: cardWidth || '22rem', height: cardHeight || '8rem'}}>
+		style={{width: cardWidth , height: cardHeight , margin: margin}}>
 		<CardHeader>
 			<img src={imgurl}/>
 		</CardHeader>
@@ -28,27 +51,34 @@ export default({children, imgurl, twitter, github, cardWidth, cardHeight} : Card
 	}}/>
 		</Icon>
 	</Card>
+</Wrapper>
 );
-
+const Wrapper = styled.section `
+	padding: 1rem;
+`
 const Card = styled.section `
   display: flex;
   background-color: #fff;
   box-shadow: 0px 0px 20px rgba(0,0,0, 0.1);
   transition: .2s linear;
-  margin-right: 4rem;
-  margin-left: 4rem;
   margin-top: 2rem;
+	width: 28rem;
+	height: 10rem;
   &:hover {
     box-shadow: 0px 0px 50px rgba(0,0,0,0.3);
     cursor: pointer;
   }
+	${media.desktop`
+		height: 20rem;
+		width: 100%;
+	`}
 `;
 const CardHeader = styled.header `
   overflow: hidden;
   background-color: grey;
   margin-right: 1rem;
-  margin-left: -0.5rem;
-  width: 18rem;
+	width: 100%;
+	width: 100%;
   img {
     width: 100%;
     height: 100%;
@@ -66,11 +96,15 @@ const CardBody = styled.h1 `
   font-size: 20px;
   font-weight: normal;
   margin-top: 1rem;
+	${media.desktop`
+		font-size: 47px;
+	`}
 `;
 
 const Icon = styled.a `
   text-decoration: none;
   margin-top: 0.3rem;
   height: 0;
-  margin-top: 0.8rem;
+  padding-top: 0.8rem;
+	padding-left: 0.5rem;
 `;

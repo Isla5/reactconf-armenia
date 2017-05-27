@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Sticky, StickyContainer} from 'react-sticky';
 import Head from 'next/head';
-import styled, {injectGlobal} from 'styled-components';
+import styled, {injectGlobal, css} from 'styled-components';
 import {normalize} from 'polished';
 import Header from '../components/header';
 import BodyElement from '../components/bodyElement';
@@ -9,6 +9,24 @@ import Footer from '../components/footer';
 import NavBar from '../components/navBar'
 import Speaker from '../components/speakersCard'
 import Sponsors	from '../components/sponsorsCard'
+import Layout from '../layouts/default';
+
+const sizes = {
+	desktop: 992,
+	tablet: 768,
+	phone: 376
+}
+
+// Iterate through the sizes and create a media template
+const media = Object.keys(sizes).reduce((acc, label) => {
+	acc[label] = (...args) => css`
+		@media (max-width: ${sizes[label] / 16}em) {
+			${css(...args)}
+		}
+	`
+
+	return acc
+}, {})
 export default() => (
 
 	<div>
@@ -42,7 +60,7 @@ export default() => (
 				}}>
 					<div>
 						<Title>
-							Meet Our Speakers
+							 Our Speakers
 						</Title>
 						<SpeakersBox>
 							<Speaker imgurl='https://avatars1.githubusercontent.com/u/22010816?v=3&s=400'>
@@ -132,6 +150,12 @@ const Title = styled.h1 `
   color: #0033a0;
   text-align: center;
   font-weight: 400;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	${media.desktop`
+   font-size: 4rem;
+	`}
 `
 const HeaderWrapper = styled.section `
   display: flex;
@@ -149,20 +173,18 @@ const HeaderWrapper = styled.section `
 `
 const SpeakersBox = styled.section `
   display: flex;
-  align-items: flex-start !important;
-  justify-content: space-around !important;
-  margin-bottom: 3rem;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 1rem;
+	margin-top: 2rem;
+	${media.desktop`
+		display: block;
+		width: 100%;
+
+	`}
 
 `
-const Text = styled.h1 `
-  text-align: center;
-  color: #0033a0;
-  letter-spacing: 1.2px;
-  padding-right: 12rem;
-  font-size: 1.3rem;
-  font-family: 'Lora', serif;
 
-`
 const ShortDescription = styled.p `
   color: rgb(139, 139, 135);
   height: auto;
@@ -171,6 +193,9 @@ const ShortDescription = styled.p `
   font-weight: lighter;
   font-size: 18px;
   margin-top: 2px;
+	${media.desktop`
+		font-size: 50px;
+	`}
 `
 const Row = styled.section`
 	display: flex;

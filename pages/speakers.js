@@ -1,7 +1,24 @@
 import React from 'react';
 import Layout from '../layouts/default';
 import Speaker from '../components/speakersCard';
-import styled, {injectGlobal} from 'styled-components'
+import styled, {injectGlobal, css} from 'styled-components'
+
+const sizes = {
+	desktop: 992,
+	tablet: 768,
+	phone: 376
+}
+
+// Iterate through the sizes and create a media template
+const media = Object.keys(sizes).reduce((acc, label) => {
+	acc[label] = (...args) => css`
+		@media (max-width: ${sizes[label] / 16}em) {
+			${css(...args)}
+		}
+	`
+
+	return acc
+}, {})
 
 
 import Head from 'next/head'
@@ -12,12 +29,13 @@ export default() => (
 			<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet"/>
 		</Head>
 		<Layout>
-				<Wrapper>
+			<Wrapper>
 				<div>
 					<Title> Meet Our Speakers </Title>
 				<Speaker
-					cardWidth='58.5rem'
-					cardHeight='15rem'
+					margin='3rem 0 0 0rem'
+					cardWidth='56rem'
+					cardHeight='20rem'
 					imgurl='https://avatars1.githubusercontent.com/u/22010816?v=3&s=400'>
 					Edgar Khanzadian
 					<LongDescription>
@@ -30,8 +48,9 @@ export default() => (
 					</LongDescription>
 				</Speaker>
 				<Speaker
-					cardWidth='58.5rem'
-					cardHeight='15rem'
+					margin='3rem 0 0 0rem'
+					cardWidth='56rem'
+					cardHeight='20rem'
 					imgurl='https://avatars1.githubusercontent.com/u/3036816?v=3&s=400'>
 					Edgar Aroutiounian
 					<LongDescription>
@@ -43,8 +62,9 @@ export default() => (
 							Integer nisi tellus, molestie facilisis feugiat					</LongDescription>
 				</Speaker>
 				<Speaker
-					cardWidth='58.5rem'
-					cardHeight='15rem'
+					margin='3rem 0 0 0rem'
+					cardWidth='56rem'
+					cardHeight='20rem'
 					imgurl='https://avatars1.githubusercontent.com/u/15631149?v=3&s=400'>
 					Narek Ghevandiani
 					<LongDescription>
@@ -56,8 +76,9 @@ export default() => (
 							Integer nisi tellus, molestie facilisis feugiat					</LongDescription>
 				</Speaker>
 				<Speaker
-					cardWidth='58.5rem'
-					cardHeight='15rem'
+					margin='3rem 0 0 0rem'
+					cardWidth='56rem'
+					cardHeight='20rem'
 					imgurl='https://avatars1.githubusercontent.com/u/22914589?v=3&s=400'>
 					BirthDay Boy
 					<LongDescription>
@@ -70,8 +91,9 @@ export default() => (
 				</Speaker>
 
 				<Speaker
-					cardWidth='58.5rem'
-					cardHeight='15rem'
+					margin='3rem 0 0 0rem'
+					cardWidth='56rem'
+					cardHeight='20rem'
 					imgurl='https://www.sideshowtoy.com/wp-content/uploads/2013/06/901935-product-feature.jpg'>
 					RoboCop
 					<LongDescription>
@@ -79,8 +101,9 @@ export default() => (
 					</LongDescription>
 				</Speaker>
 				<Speaker
-					cardWidth='58.5rem'
-					cardHeight='15rem'
+					margin='3rem 0 0 0rem'
+					cardWidth='56rem'
+					cardHeight='20rem'
 					imgurl='https://www.sideshowtoy.com/photo.php?sku=902622'>
 					Iron Man
 					<LongDescription>
@@ -88,13 +111,6 @@ export default() => (
 					</LongDescription>
 				</Speaker>
 
-
-				<Speaker
-					cardWidth='58.5rem'
-					cardHeight='15rem'
-					imgurl='https://image.flaticon.com/icons/svg/37/37571.svg '>
-					Apply Now, Be The Next Hero
-				</Speaker>
 			</div>
 			</Wrapper>
 		</Layout>
@@ -117,7 +133,7 @@ const Wrapper = styled.section `
 
 
 const LongDescription = styled.p `
-  color: rgb(139, 139, 135);
+  color: rgb(19, 22, 23);
   height: auto;
   font-family: sans-serif;
   width: 100%;
@@ -126,6 +142,10 @@ const LongDescription = styled.p `
   margin-top: 2px;
 	text-align: justify;
 	text-justify: inter-word;
+	${media.desktop`
+		font-size: 20px;
+		color: rgb(19, 22, 23);
+	`}
 `
 
 
@@ -133,7 +153,10 @@ const LongDescription = styled.p `
 const Title = styled.h1 `
   font-size: 3rem;
   color: #0033a0;
-  text-align: center;
   font-weight: 400;
-	padding: 2rem;
+	padding-top: 2rem;
+	display: flex;
+	justify-content: center !important;
+	align-items: center !important;
+	align-content: center;
 `;

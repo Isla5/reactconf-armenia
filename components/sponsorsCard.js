@@ -9,7 +9,7 @@ export default ({imgurl, sponsorurl} : SponsorProps) => (
 
     <Wrapper>
         <Sponsor>
-          <a href={sponsorurl}>
+          <a target="_blank" href={sponsorurl} >
           <Image src={imgurl}/>
           </a>
 

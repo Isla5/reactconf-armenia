@@ -1,8 +1,25 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import Head from 'next/head';
 
 import NavBar from './navBar';
 
+
+const sizes = {
+	desktop: 992,
+	tablet: 768,
+	phone: 376
+}
+
+// Iterate through the sizes and create a media template
+const media = Object.keys(sizes).reduce((acc, label) => {
+	acc[label] = (...args) => css`
+		@media (max-width: ${sizes[label] / 16}em) {
+			${css(...args)}
+		}
+	`
+
+	return acc
+}, {})
 export default() => (
 	<Header>
 		<Head>
@@ -25,7 +42,7 @@ const Wrapper = styled.section `
   display: flex;
   justify-content: center;
   align-items: center;
-	margin-left: 1rem;
+	margin-left: 0;
 `;
 
 const Text = styled.p `
@@ -34,6 +51,9 @@ const Text = styled.p `
   font-size: 1.5rem;
   padding-top: 12rem;
   font-family: 'Lora', serif;
+	${media.desktop`
+   font-size: 4rem;
+	`}
 `;
 const Header = styled.header `
   background-position: center center;
